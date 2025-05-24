@@ -1,9 +1,8 @@
 package com.daniela.proyecto;
 
-
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
-
 
 public class Main {
     static Scanner input = new Scanner(System.in);
@@ -17,7 +16,7 @@ public class Main {
 
         try {
             lector.leerArchivoDesdeTexto("logistica.txt", grafo, clima);
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error al leer archivo: " + e.getMessage());
             return;
         }
@@ -82,13 +81,17 @@ public class Main {
                 grafo.eliminarConexion(origen, destino);
             }
             case "2" -> {
-                System.out.print("Ciudad origen: ");
-                String origen = input.nextLine();
-                System.out.print("Ciudad destino: ");
-                String destino = input.nextLine();
-                System.out.print("Tiempo normal: ");
-                int tiempo = Integer.parseInt(input.nextLine());
-                grafo.agregarConexion(origen, destino, tiempo);
+                try {
+                    System.out.print("Ciudad origen: ");
+                    String origen = input.nextLine();
+                    System.out.print("Ciudad destino: ");
+                    String destino = input.nextLine();
+                    System.out.print("Tiempo normal: ");
+                    int tiempo = Integer.parseInt(input.nextLine());
+                    grafo.agregarConexion(origen, destino, tiempo);
+                } catch (NumberFormatException e) {
+                    System.out.println("Tiempo inválido. Debe ser un número entero.");
+                }
             }
             case "3" -> {
                 System.out.print("Nuevo clima: ");
@@ -96,7 +99,7 @@ public class Main {
                 grafo.reiniciar();
                 try {
                     lector.leerArchivoDesdeTexto("logistica.txt", grafo, clima);
-                } catch (Exception e) {
+                } catch (IOException e) {
                     System.out.println("Error al leer archivo: " + e.getMessage());
                 }
             }

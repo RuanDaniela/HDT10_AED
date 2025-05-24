@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Grafo {
-    private List<String> ciudades = new ArrayList<>();
-    private Map<String, Integer> indices = new HashMap<>();
+    private final List<String> ciudades = new ArrayList<>();
+    private final Map<String, Integer> indices = new HashMap<>();
     private int[][] matriz;
     private final int INF = Integer.MAX_VALUE;
 
@@ -30,8 +30,7 @@ public class Grafo {
         for (int[] fila : nueva) Arrays.fill(fila, INF);
 
         for (int i = 0; i < matriz.length; i++)
-            for (int j = 0; j < matriz.length; j++)
-                nueva[i][j] = matriz[i][j];
+            System.arraycopy(matriz[i], 0, nueva[i], 0, matriz.length);
 
         matriz = nueva;
     }
