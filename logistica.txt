@@ -1,0 +1,11 @@
+BuenosAires SaoPaulo 10 15 20 50
+BuenosAires Lima 15 20 30 70
+Lima Quito 10 12 15 20
+Quito Bogota 12 14 16 30
+SaoPaulo Bogota 20 25 35 60
+Bogota CiudadPanama 8 10 15 25
+CiudadPanama SanJose 5 8 10 20
+SanJose Managua 7 10 14 22
+Managua Tegucigalpa 6 9 13 21
+Tegucigalpa SanSalvador 4 6 9 15
+SanSalvador GuatemalaCity 3 5 7 10
